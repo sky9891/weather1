@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather</title>
+
+  <!-- ✅ RESPONSIVE UPDATE: Add modern CSS reset for better consistency -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  </style>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="location">
+    <h1>Weather</h1>
+
+    <!-- ✅ RESPONSIVE UPDATE: Add wrapper for better layout control -->
+    <div class="search">
+      <input type="text" placeholder="Enter city name" />
+      <button id="searchBtn">
+        <img src="images/search.png" alt="Search" />
+      </button>
+    </div>
+
+    <div class="weather">
+      <img src="images/clear.png" alt="sunny" class="weather-icon" />
+      <h1 class="city">City</h1>
+      <h2 class="temp">X°C</h2>
+
+      <!-- ✅ RESPONSIVE UPDATE: Group humidity and wind side-by-side -->
+      <div class="detail">
+        <div class="col">
+          <img src="images/humidity.png" alt="Humidity" />
+          <div class="data">
+            <p>Humidity</p>
+            <p class="humidity">Y%</p>
+          </div>
+        </div>
+        <div class="col">
+          <img src="images/wind.png" alt="Wind" />
+          <div class="data">
+            <p>Wind Speed</p>
+            <p class="wind">Z km/h</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ RESPONSIVE UPDATE: Optional - Add toggle button for dark mode -->
+  <!-- <button id="darkToggle">🌙 Dark Mode</button> -->
+
+  <script src="script.js"></script>
+</body>
+</html>
