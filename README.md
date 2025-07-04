@@ -9,7 +9,7 @@ Users can search for real-time weather information by city name or use their cur
 
 ## 🔗 Live Demo
 
-👉 [Click here to view the app](https://sky9891.github.io/weather-project/)  
+👉 [Click here to view the app](https://sky9891.github.io/weather-app/)  
 *(Replace the link with your actual GitHub Pages URL)*
 
 ---
@@ -39,4 +39,4 @@ Users can search for real-time weather information by city name or use their cur
 
 1. Clone the repository  
    ```bash
-   git clone https://github.com/your-username/weather-project.git
+   git clone https://github.com/your-username/weather-appt.git
