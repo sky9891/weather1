@@ -7,20 +7,21 @@ const weatherIcon = document.querySelector(".weather img");
 
 async function getWeather(city) {
   try {
-    const response = await fetch(`${apiUrl}${city}&key=${apiKey}`, {
-      mode: "cors"
-    });
+    const response = await fetch(`${apiUrl}${city}&key=${apiKey}`);
     const data = await response.json();
-    if (data.error) throw new Error(data.error.message);
 
-    document.querySelector(".city").innerHTML = data.location.name;
-    document.querySelector(".temp").innerHTML =
-      Math.round(data.current.temp_c) + "°C";
-    document.querySelector(".humidity").innerHTML = data.current.humidity + "%";
-    document.querySelector(".wind").innerHTML = data.current.wind_kph + " km/h";
-
+    // ✅ Extract & log condition for debug
     const condition = data.current.condition.text.toLowerCase();
+    console.log("Weather condition received:", condition);
 
+    // ✅ Update values
+    document.querySelector(".city").innerText = data.location.name;
+    document.querySelector(".temp").innerText =
+      Math.round(data.current.temp_c) + "°C";
+    document.querySelector(".humidity").innerText = data.current.humidity + "%";
+    document.querySelector(".wind").innerText = data.current.wind_kph + " km/h";
+
+    // ✅ Update image based on condition
     if (condition.includes("cloud")) {
       weatherIcon.src = "images/cloud.png";
     } else if (condition.includes("clear") || condition.includes("sunny")) {
@@ -60,24 +61,21 @@ searchBox.addEventListener("keydown", (event) => {
   }
 });
 
-// 🌍 Auto fetch weather on page load using geolocation
+// 🌍 Auto fetch weather on load using geolocation
 window.addEventListener("load", () => {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(success, error);
   } else {
-    alert("Geolocation not supported by your browser.");
+    alert("Geolocation not supported.");
   }
 });
 
 function success(position) {
-  const latitude = position.coords.latitude;
-  const longitude = position.coords.longitude;
-  console.log("Your location:", latitude, longitude);
-
-  // Pass coordinates to weather API
-  getWeather(`${latitude},${longitude}`);
+  const lat = position.coords.latitude;
+  const lon = position.coords.longitude;
+  getWeather(`${lat},${lon}`);
 }
 
 function error() {
-  alert("Location access denied. Please enter a city manually.");
+  alert("Location access denied. Please search manually.");
 }
