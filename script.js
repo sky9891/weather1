@@ -7,8 +7,11 @@ const weatherIcon = document.querySelector(".weather img");
 
 async function getWeather(city) {
   try {
-    const response = await fetch(`${apiUrl}${city}&key=${apiKey}`);
+    const response = await fetch(`${apiUrl}${city}&key=${apiKey}`, {
+      mode: "cors"
+    });
     const data = await response.json();
+    if (data.error) throw new Error(data.error.message);
 
     document.querySelector(".city").innerHTML = data.location.name;
     document.querySelector(".temp").innerHTML =
