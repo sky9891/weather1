@@ -9,7 +9,7 @@ Users can search for real-time weather information by city name or use their cur
 
 ## 🔗 Live Demo
 
-👉 [Click here to view the app](https://sky9891.github.io/weather-app/)  
+👉 [Click here to view the app](https://sky9891.github.io/weather1/)  
 *(Replace the link with your actual GitHub Pages URL)*
 
 ---
